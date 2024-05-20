@@ -1,7 +1,9 @@
 package com.example.ProxyServer.rest_controllers;
 
+import com.example.ProxyServer.Logger;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,27 +24,30 @@ public class HoroscropeRestController {
         this.restTemplate = new RestTemplate();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/daily")
     public String getDaily(@RequestParam(name = "sign") String sign,
                            @RequestParam(name = "day", required = false) String day) {
         StringBuilder builder = new StringBuilder();
         builder.append(dailyURL).append(sign);
         if(day != null) {
-            builder.append("?day=").append(day.toUpperCase());
+            builder.append("&day=").append(day.toUpperCase());
         }
-        System.out.println(builder.toString());
+        System.out.println(Logger.logEntry("FETCHING: " + weeklyURL + sign));
         return restTemplate.getForObject(builder.toString(), String.class);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/weekly")
     public String getWeekly(@RequestParam(name = "sign") String sign) {
-        System.out.println(weeklyURL + sign);
-        return restTemplate.getForObject(weeklyURL + sign, String.class);
+        System.out.println(Logger.logEntry(weeklyURL + sign));
+        return restTemplate.getForObject("FETCHING: " + weeklyURL + sign, String.class);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/monthly")
     public String getMonthly(@RequestParam(name = "sign") String sign) {
-        System.out.println(monthlyURL + sign);
-        return restTemplate.getForObject(monthlyURL + sign, String.class);
+        System.out.println(Logger.logEntry(weeklyURL + sign));
+        return restTemplate.getForObject("FETCHING: " + monthlyURL + sign, String.class);
     }
 }
