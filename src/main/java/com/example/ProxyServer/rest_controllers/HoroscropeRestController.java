@@ -41,13 +41,13 @@ public class HoroscropeRestController {
     @GetMapping("/weekly")
     public String getWeekly(@RequestParam(name = "sign") String sign) {
         System.out.println(Logger.logEntry(weeklyURL + sign));
-        return restTemplate.getForObject("FETCHING: " + weeklyURL + sign, String.class);
+        return restTemplate.getForObject(weeklyURL + sign, String.class);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/monthly")
     public String getMonthly(@RequestParam(name = "sign") String sign) {
         System.out.println(Logger.logEntry(weeklyURL + sign));
-        return restTemplate.getForObject("FETCHING: " + monthlyURL + sign, String.class);
+        return restTemplate.getForObject(monthlyURL + sign, String.class);
     }
 }
