@@ -14,4 +14,6 @@ a) Kontrollera att projekt-strukturen är korrekt inställd. Via meny-valen, nav
 
 ![image](https://github.com/vinparwes/ProxyServer/assets/101572886/8c0a7a48-72cc-4637-b69a-375772f68174)
 
-b) Finns filen pom.xml högst uppe i filutforskaren. Högerklicka på denna. Flytta muspekaren till menyvalet "Maven" och välj därefter "Reload Projekt". 
+b) Finns filen pom.xml högst uppe i filutforskaren. Högerklicka på denna. Flytta muspekaren till menyvalet "Maven" och välj därefter "Reload Projekt". Kör om på nytt. 
+
+Om dessa två punkter inte hjälper ber vi dig att kontakta oss för vidare hjälp.
